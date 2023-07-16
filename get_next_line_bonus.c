@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamsyah <bamsyah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 16:14:14 by bamsyah           #+#    #+#             */
-/*   Updated: 2023/07/16 12:57:17 by bamsyah          ###   ########.fr       */
+/*   Created: 2023/07/16 14:38:29 by bamsyah           #+#    #+#             */
+/*   Updated: 2023/07/16 14:42:17 by bamsyah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_file(int fd, char *rest)
 {
@@ -84,22 +84,22 @@ char	*ft_getrest(char *rest, char *line)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*rest;
+	static char	*rest[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	rest = read_file(fd, rest);
-	if (!rest)
+	rest[fd] = read_file(fd, rest[fd]);
+	if (!rest[fd])
 		return (NULL);
-	line = ft_getline(rest);
+	line = ft_getline(rest[fd]);
 	if (line[0] == '\0')
 	{
-		free(rest);
-		rest = NULL;
+		free(rest[fd]);
+		rest[fd] = NULL;
 		return (free(line), NULL);
 	}
-	rest = ft_getrest(rest, line);
-	if (!rest)
+	rest[fd] = ft_getrest(rest[fd], line);
+	if (!rest[fd])
 		return (free(line), NULL);
 	return (line);
 }
