@@ -6,20 +6,20 @@
 /*   By: bamsyah <bamsyah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:11:25 by bamsyah           #+#    #+#             */
-/*   Updated: 2023/07/16 12:04:19 by bamsyah          ###   ########.fr       */
+/*   Updated: 2023/07/19 23:00:11 by bamsyah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strchr(char *buffer)
+int	ft_strchr(char *rest)
 {
 	int	i;
 
 	i = 0;
-	while (buffer && buffer[i])
+	while (rest && rest[i])
 	{
-		if (buffer[i] == '\n')
+		if (rest[i] == '\n')
 			return (1);
 		i++;
 	}
@@ -36,8 +36,6 @@ char	*ft_strjoin(char *buffer, char *rest)
 	y = 0;
 	if (!buffer)
 		return (NULL);
-	if (rest == NULL)
-		return (ft_strdup(buffer));
 	all = malloc(sizeof(char) * (ft_strlen(buffer) + ft_strlen(rest)) + 1);
 	if (!all)
 		return (NULL);

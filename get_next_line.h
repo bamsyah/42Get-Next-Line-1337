@@ -6,7 +6,7 @@
 /*   By: bamsyah <bamsyah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:12:05 by bamsyah           #+#    #+#             */
-/*   Updated: 2023/07/16 12:59:08 by bamsyah          ###   ########.fr       */
+/*   Updated: 2023/07/19 20:51:32 by bamsyah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2
+#  define BUFFER_SIZE 1
 # endif
 
 char	*ft_getrest(char *rest, char *line);

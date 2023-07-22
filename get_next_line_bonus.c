@@ -6,7 +6,7 @@
 /*   By: bamsyah <bamsyah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:38:29 by bamsyah           #+#    #+#             */
-/*   Updated: 2023/07/16 14:42:17 by bamsyah          ###   ########.fr       */
+/*   Updated: 2023/07/19 23:33:44 by bamsyah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_getrest(char *rest, char *line)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*rest[1024];
+	static char	*rest[10240];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
